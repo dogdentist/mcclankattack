@@ -102,21 +102,3 @@ where
 
     Ok(value)
 }
-
-pub fn read_string<'a, I>(mut iter: I) -> anyhow::Result<String>
-where
-    I: Iterator<Item = &'a u8>,
-{
-    let length = read_varint(&mut iter)? as usize;
-    let mut buffer = Vec::with_capacity(length);
-
-    for _ in 0..length {
-        if let Some(byte) = iter.next() {
-            buffer.push(*byte);
-        } else {
-            return Err(anyhow!("unexpected end of input while reading string"));
-        }
-    }
-
-    String::from_utf8(buffer).map_err(|e| anyhow!("failed to decode string: {}", e))
-}

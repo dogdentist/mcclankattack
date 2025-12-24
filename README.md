@@ -16,9 +16,13 @@ Overall, you can check the list of commands by running with an argument '--help'
 ![mc bot spam example](/mcclankattack-spam.gif)
 
 ```sh
-cargo run -- --destination localhost:25565 --clankers 19  --message-list messages.txt --message-interval 200 
+cargo run -- \
+    --destination localhost:25565 \
+    --clankers 19 \
+    --message-list messages.txt \
+    --message-interval 200 
 ```
 
 ### note
 
-This project is for educational purposes. It's not meant to be an attack project—you will notice this by the lack of features it needs to bypass the lack of protection.
+This project is for educational purposes. It's not meant to be an attack project—you will notice this by the lack of features it needs to bypass basic of protection.

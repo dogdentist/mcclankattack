@@ -1,6 +1,6 @@
 # mcclankattack
 
-'mcclankattack' is a Minecraft bot spammer. It connects bots that spam messages—nothing special. So, randomly, I got bored near Christmas and wanted to make one—like the old days.
+'mcclankattack' is a Minecraft bot spammer for Minecraft 1.21.11. It connects bots that spam messages—nothing special. So, randomly, I got bored near Christmas and wanted to make one—like the old days.
 
 ### how to run?
 

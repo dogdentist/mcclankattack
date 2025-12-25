@@ -1,6 +1,7 @@
 use std::sync::Arc;
 use std::sync::atomic::AtomicU64;
 
+use anyhow::anyhow;
 use tokio::net::tcp::{OwnedReadHalf, OwnedWriteHalf};
 use tokio::sync::Mutex;
 
@@ -103,6 +104,10 @@ pub async fn attack_loop(args: Arguments) -> anyhow::Result<()> {
             .map(|v| v.to_string())
             .collect();
 
+        if bot_names.is_empty() {
+            return Err(anyhow!("empty bot name list; cannot continue"));
+        }
+
         ClankerName {
             id: AtomicU64::new(0),
             names: ClankerNameType::Ready(bot_names),
@@ -122,6 +127,10 @@ pub async fn attack_loop(args: Arguments) -> anyhow::Result<()> {
                 .filter(|v| !v.is_empty())
                 .map(|v| v.to_string())
                 .collect();
+
+        if bot_messages.is_empty() {
+            return Err(anyhow!("empty bot message list; cannot continue"));
+        }
 
         ClankerMessages(bot_messages)
     });
